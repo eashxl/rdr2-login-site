@@ -1,0 +1,205 @@
+/* style.css - Nível PROFISSIONAL Aprimorado (Com Paleta Final RDR2) */
+
+/* ---------------------------------------------------- */
+/* 0. Configuração Base & Variáveis (Paleta RDR2) */
+/* ---------------------------------------------------- */
+
+:root {
+    /* Paleta de Cores de RDR2: Tons Terrosos e Desaturados */
+    --color-dark-brown: #2F2B26; /* Marrom escuro da terra e do couro velho */
+    --color-paper-light: #DDD0C0; /* Papel/Pergaminho muito claro, quase bege */
+    --color-metal: #73594A; /* Tom de couro envelhecido e metal gasto */
+    --color-accent: #9A2F2F; /* Vermelho queimado/ferrugem (mais sutil) */
+    --color-shadow: #191614;
+
+    --color-input-bg: #F9F9F9; 
+
+    /* Fontes */
+    --font-heading: 'IM Fell English', serif; 
+    --font-body: 'Cochin', 'Georgia', serif; /* Fonte clássica de livro/documento */
+    --font-input-western: 'Special Elite', monospace; /* Fonte de Máquina de Escrever */
+}
+
+/* 7. Responsividade: box-sizing universal */
+*, *::before, *::after {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------------------- */
+/* 1. Estrutura e Layout Geral */
+/* ---------------------------------------------------- */
+
+body {
+    /* Fundo com textura e as cores escuras de RDR2 */
+    background: 
+        radial-gradient(circle at center, rgba(47, 43, 38, 0.95), rgba(47, 43, 38, 1)),
+        linear-gradient(135deg, var(--color-dark-brown) 0%, #403830 100%);
+    color: var(--color-paper-light); 
+    font-family: var(--font-body); 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em; 
+    color: var(--color-accent); 
+    text-shadow: 3px 3px 5px var(--color-shadow);
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 15px;
+    letter-spacing: 3px; 
+}
+
+/* ---------------------------------------------------- */
+/* 2. Formulário Principal (Cartaz) */
+/* ---------------------------------------------------- */
+
+.login-container {
+    background-color: var(--color-paper-light); 
+    color: var(--color-dark-brown); 
+    padding: 50px; 
+    border: 6px solid var(--color-metal); 
+    
+    box-shadow: 
+        -15px 15px 0px 0px var(--color-metal), 
+        0 0 25px rgba(0, 0, 0, 0.6); 
+    
+    width: 100%; 
+    max-width: 420px; 
+}
+
+.login-form h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* ---------------------------------------------------- */
+/* 3. Campos de Entrada */
+/* ---------------------------------------------------- */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: none; 
+    border-bottom: 2px solid var(--color-metal); 
+    background-color: var(--color-input-bg);
+    
+    /* Aplicação da fonte de Velho Oeste nos inputs */
+    font-family: var(--font-input-western); 
+    font-size: 1em;
+    
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+    border-bottom-color: var(--color-accent);
+    box-shadow: 0 2px 0 0 var(--color-accent);
+    outline: none; 
+}
+
+.hint-text {
+    font-size: 0.75em;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* ---------------------------------------------------- */
+/* 4. Botão */
+/* ---------------------------------------------------- */
+
+.button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 25px;
+    transition: all 0.2s ease-in-out;
+}
+
+.button--primary {
+    background-color: var(--color-accent); 
+    color: white;
+    border: 4px outset var(--color-metal); 
+}
+
+.button--primary:hover {
+    background-color: #B44A4A; /* Hover suave */
+    border-color: #9A2F2F;
+}
+
+.button--primary:active {
+    transform: scale(0.98); 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4); 
+}
+
+/* ---------------------------------------------------- */
+/* 5. Rodapé e Links */
+/* ---------------------------------------------------- */
+
+.link-forgot {
+    color: var(--color-accent); 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-forgot:hover {
+    text-decoration: underline;
+}
+
+.page-footer {
+    margin-top: 40px;
+    font-size: 0.75em;
+    color: var(--color-metal);
+    text-align: center;
+}
+
+/* ---------------------------------------------------- */
+/* 6. Responsividade (Critério 7) */
+/* ---------------------------------------------------- */
+
+@media (max-width: 600px) {
+    
+    body {
+        padding: 10px;
+        min-height: 100%; 
+    }
+
+    .page-header h1 {
+        font-size: 2.5em; 
+        letter-spacing: 1px;
+    }
+
+    .login-container {
+        padding: 30px; 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+}
